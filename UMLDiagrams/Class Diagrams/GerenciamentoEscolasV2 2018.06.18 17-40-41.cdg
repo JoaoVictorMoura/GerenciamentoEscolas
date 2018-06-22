@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="GerenciamentoEscolasV2">
+  <ClassDiagramComponents>
+    <Class name="Aluno" package="br.com.domain" visibility="public" xPosition="455.0" yPosition="356.0">
+      <Fields>
+        <Field name="matricula" type="String" visibility="private"/>
+        <Field name="nome" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="matricula"/>
+          <Argument type="String" name="nome"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMatricula" returnType="String" visibility="public"/>
+        <Method name="setMatricula" returnType="void" visibility="public">
+          <Argument type="String" name="matricula"/>
+        </Method>
+        <Method name="getNome" returnType="String" visibility="public"/>
+        <Method name="setNome" returnType="void" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Cargos" package="br.com.domain" visibility="public" xPosition="388.0" yPosition="10.0">
+      <Fields>
+        <Field name="codigo" type="String" visibility="private"/>
+        <Field name="cargo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getCodigo" returnType="String" visibility="public"/>
+        <Method name="setCodigo" returnType="void" visibility="public">
+          <Argument type="String" name="codigo"/>
+        </Method>
+        <Method name="getCargo" returnType="String" visibility="public"/>
+        <Method name="setCargo" returnType="void" visibility="public">
+          <Argument type="String" name="cargo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Monitoria" package="br.com.domain" visibility="public" xPosition="17.0" yPosition="10.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="codigo"/>
+          <Argument type="String" name="cargo"/>
+          <Argument type="String" name="nome"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNome" returnType="String" visibility="public"/>
+        <Method name="setNome" returnType="void" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Professor" package="br.com.domain" visibility="public" xPosition="803.0" yPosition="29.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="codigo"/>
+          <Argument type="String" name="cargo"/>
+          <Argument type="String" name="nome"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNome" returnType="String" visibility="public"/>
+        <Method name="setNome" returnType="void" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Turma" package="br.com.domain" visibility="public" xPosition="738.0" yPosition="238.0">
+      <Fields>
+        <Field name="professor" type="Professor" visibility="private"/>
+        <Field name="alunos" type="List&lt;Aluno&gt;" visibility="private"/>
+        <Field name="codigo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Professor" name="professor"/>
+          <Argument type="List&lt;Aluno&gt;" name="alunos"/>
+          <Argument type="String" name="codigo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getProfessor" returnType="Professor" visibility="public"/>
+        <Method name="setProfessor" returnType="void" visibility="public">
+          <Argument type="Professor" name="professor"/>
+        </Method>
+        <Method name="getAlunos" returnType="List&lt;Aluno&gt;" visibility="public"/>
+        <Method name="setAlunos" returnType="void" visibility="public">
+          <Argument type="List&lt;Aluno&gt;" name="alunos"/>
+        </Method>
+        <Method name="getCodigo" returnType="String" visibility="public"/>
+        <Method name="setNome" returnType="void" visibility="public">
+          <Argument type="String" name="codigo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Main" package="br.com.main" visibility="public" xPosition="17.0" yPosition="220.0">
+      <Fields>
+        <Field name="alunos" type="List&lt;Aluno&gt;" visibility="private" isStatic="true"/>
+        <Field name="professores" type="List&lt;Professor&gt;" visibility="private" isStatic="true"/>
+        <Field name="turmas" type="List&lt;Turma&gt;" visibility="private" isStatic="true"/>
+        <Field name="monitores" type="List&lt;Monitoria&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Listaralunos" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="Listarprofessor" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="Listarmonitores" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="Addaluno" returnType="void" visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="matricula"/>
+        </Method>
+        <Method name="Addprofessor" returnType="void" visibility="public">
+          <Argument type="String" name="codigo"/>
+          <Argument type="String" name="cargo"/>
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="Addmonitor" returnType="void" visibility="public">
+          <Argument type="String" name="codigo"/>
+          <Argument type="String" name="cargo"/>
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="professor" source="br.com.domain.Turma" target="br.com.domain.Professor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="alunos" source="br.com.domain.Turma" target="br.com.domain.Aluno" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Aluno&gt;"/>
+    <HasRelation name="turmas" source="br.com.main.Main" target="br.com.domain.Turma" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Turma&gt;"/>
+    <IsRelation name="is" source="br.com.domain.Professor" target="br.com.domain.Cargos"/>
+    <HasRelation name="alunos" source="br.com.main.Main" target="br.com.domain.Aluno" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Aluno&gt;"/>
+    <UseRelation source="br.com.domain.Turma" target="br.com.domain.Professor" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="br.com.domain.Monitoria" target="br.com.domain.Cargos"/>
+    <HasRelation name="professores" source="br.com.main.Main" target="br.com.domain.Professor" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Professor&gt;"/>
+    <HasRelation name="monitores" source="br.com.main.Main" target="br.com.domain.Monitoria" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Monitoria&gt;"/>
+    <UseRelation source="br.com.domain.Turma" target="br.com.domain.Aluno" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
